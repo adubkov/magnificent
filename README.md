@@ -80,11 +80,16 @@ This is what we look for.
 To start magnificent monitoring daemon please execute:
 
 ```
-magnificent_healthckech http://localhost:12345 --daemon
+magnificent_healthcheck http://localhost:12345 --interval 1 -r 1 -f 2 --daemon
 ```
 
 On Mac it will writing logs to `/Users/{{ USER }}/Library/Logs/MagnificentHealthcheck/`
 On Linux it will writing logs to `/var/logs/MagnificentHealthcheck/`
+
+I didn't implement stopping mechanism. It should be just a function to find pid and kill the prcoess.
+
+I would add this function to setup.py as entrypoint.
+Also there were not time for tests, but I could add them easily with more time.
 
 ### Usage
 ```
